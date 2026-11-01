@@ -1,30 +1,39 @@
-# ForexSpider — showcase
+# ForexSpider — public engineering showcase
 
-**A private market-platform project, represented here only as a public portfolio case study.**
+> A safe, representative demonstration of how I approach trading-platform architecture, not the ForexSpider production source code.
 
-ForexSpider demonstrates my approach to building responsive, data-aware products where correctness, observability, and a clear user experience matter.
+ForexSpider is presented here as a system-design case study for a market-aware product: a responsive web experience, a typed service boundary, asynchronous market-event handling, and a quality-first release workflow. The real project remains private.
 
-## Focus
+## What this showcase demonstrates
 
-- Product-facing web experience and service boundaries
-- Typed contracts and event-aware system design
-- Reliable data flows, caching, and delivery automation
+- **System design:** clear separation between the web client, API layer, domain services, and event consumers.
+- **Typed contracts:** small, explicit TypeScript types make the API boundary easier to reason about and test.
+- **Event safety:** the sample reducer accepts events idempotently and rejects stale revisions.
+- **Quality engineering:** validation belongs at the edge, before data reaches business logic.
 
-## Technology signals
+## Technology lens
 
-**Next.js · React · TypeScript · Python · FastAPI · PostgreSQL · Redis · Docker**
+| Area | Representative tools |
+| --- | --- |
+| Web product | Next.js, React, TypeScript |
+| Services | Python, FastAPI |
+| State & data | PostgreSQL, Redis |
+| Delivery | Docker, CI, contract checks |
 
-```mermaid
-flowchart LR
-  U[User] --> W[Web experience]
-  W --> A[Service boundary]
-  A --> D[Application data]
-  E[External events] --> P[Event processing]
-  P --> D
+## Safe sample code
+
+[`src/marketEventReducer.ts`](src/marketEventReducer.ts) is a standalone, dependency-free TypeScript example. It models a tiny stream of **synthetic** pricing events; it connects to no broker, exchange, credentials, account, or production endpoint.
+
+```bash
+npm run demo
 ```
 
-## Public boundary
+## Architecture
 
-This repository intentionally contains no source code, strategies, integrations, endpoints, schemas, credentials, infrastructure, or customer data. It is a concise portfolio overview—not the product or a trading service.
+See [the architecture notes](docs/architecture.md) for a public-safe system diagram, delivery approach, and deliberate exclusions.
 
-© Chidiebere Offor.
+## Boundaries
+
+This repository contains independently written illustrative material only. It intentionally excludes proprietary source, trading logic, strategies, production schemas, infrastructure, credentials, vendor configuration, and customer data. It is not financial advice and not a trading product.
+
+© Chidiebere Offor. Demonstration material; no licence to use the ForexSpider name or underlying private implementation is granted.
